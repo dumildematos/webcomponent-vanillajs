@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Counter Webcomponent</title>
+    <script src="./counter.js"></script>
+</head>
+<body>
+    
+    <h1>Counter webcomponent</h1>
+
+    <p>
+        🛸 going <counter-to counto="23343456" speed="6"></counter-to> years/light
+    </p>
+
+    <script>
+        (function(){
+            var counterTo = document.querySelector('counter-to');
+            
+            counto = 0;
+            
+            var countMax =  Number(counterTo.getAttribute('counto'))
+            speed = Number(counterTo.getAttribute('speed'));
+            
+            var counterToInterval = setInterval(()=>{
+                counto += 1;
+                counto <= countMax ? counterTo.setAttribute('counto', counto) : clearInterval(counterToInterval);
+            }, speed);
+        })();
+    </script>
+
+</body>
+</html>
